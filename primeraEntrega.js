@@ -1,4 +1,4 @@
-class productManager {
+class ProductManager {
 
     products = [];
     idAuto = 1;
@@ -21,7 +21,13 @@ class productManager {
             }
         );
 
-        this.idAuto = this.idAuto++;
+        this.idAuto = this.idAuto + 1;
     }
 }
 
+const productManager = new ProductManager();
+
+productManager.addProduct();
+productManager.addProduct();
+
+console.log(productManager);
