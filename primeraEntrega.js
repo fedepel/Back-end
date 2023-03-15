@@ -27,7 +27,7 @@ class ProductManager {
         if(!this.products.find((product) => product.id === id)) {
             console.log('Producto no encontrado')
         } else {
-            console.log('Existe')
+            console.log('Existe el producto buscado')
         }
     }
 }
