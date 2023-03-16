@@ -24,12 +24,16 @@ class ProductManager {
     }
 
     getProductById(id) {
-        if(!this.products.find((product) => product.id === id)) {
+        if (!this.products.find((product) => product.id === id)) {
             console.log('Producto no encontrado')
         } else {
-            console.log('Existe el producto buscado')
+            console.log('Producto encontrado')
+            let resultado = this.products.find((product) => product.id === id)
+            console.log(resultado)
+            return resultado
         }
     }
+
 }
 
 const productos = new ProductManager
