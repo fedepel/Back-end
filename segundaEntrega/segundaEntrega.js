@@ -11,21 +11,12 @@ class ProductManager {
         this.path = "./products.json"
     }
 
-    addProduct = async (title, description, price, thumbnail, code, stock) => {
-
-        const newProduct = {
-            title,
-            description,
-            price,
-            thumbnail,
-            code,
-            stock
-        }
+    addProduct = async (prod) => {
 
         this.#products.push(
             {
                 id: this.idAdd++,
-                ...newProduct,
+                ...prod,
             }
         );
 
@@ -77,28 +68,42 @@ const main = async () => {
 
     await pm.getProducts()
 
-    await pm.addProduct('titulo1', 'descripcion1', 200, 'imagen1', 'abcd1', 25)
-    await pm.addProduct('titulo2', 'descripcion2', 100, 'imagen2', 'abcd2', 20)
-    await pm.addProduct('titulo3', 'descripcion3', 150, 'imagen3', 'abcd3', 22)
-    
+    await pm.addProduct({
+        title: 'titulo1',
+        description: 'descripcion1',
+        price: 200,
+        thumbnail: 'imagen1',
+        code: 'abcd1',
+        stock: 25
+    })
+
+    await pm.addProduct({
+        title: 'titulo2',
+        description: 'descripcion2',
+        price: 250,
+        thumbnail: 'imagen2',
+        code: 'abcd2',
+        stock: 20
+    })
+
     await pm.getProducts()
 
-    await pm.getProductByid(3)
+    await pm.getProductByid(2)
     await pm.getProductByid(4)
     
     await pm.updateProduct(
     {
-        id: 3,
-        title: 'titulo3',
-        description: 'descripcion3',
-        price: 250,
-        thumbnail: 'imagen3',
-        code: 'abcd3',
-        stock: 22
+        id: 2,
+        title: 'titulo2',
+        description: 'descripcion2',
+        price: 280,
+        thumbnail: 'imagen2',
+        code: 'abcd2',
+        stock: 15
     }
     )
 
-    await pm.getProductByid(3)
+    await pm.getProductByid(2)
 
     await pm.deleteProductById(2)
 
