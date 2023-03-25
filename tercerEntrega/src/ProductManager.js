@@ -1,4 +1,4 @@
-const fs = require('fs').promises;
+import { promises as fs } from "fs";
 
 class ProductManager {
 
@@ -8,7 +8,7 @@ class ProductManager {
 
     constructor() {
         this.#products = [];
-        this.path = "./products.json"
+        this.path = "./src/products.json"
     }
 
     addProduct = async (prod) => {
@@ -62,24 +62,4 @@ class ProductManager {
     }
 }
 
-const pm = new ProductManager
-
-const main = async () => {
-
-    await pm.addProduct({title: 'titulo1', description: 'descripcion1', price: 200, thumbnail: 'imagen1', code: 'abc1', stock: 25})
-    await pm.addProduct({title: 'titulo2', description: 'descripcion2', price: 250, thumbnail: 'imagen2', code: 'abc2', stock: 20})
-    await pm.addProduct({title: 'titulo3', description: 'descripcion3', price: 350, thumbnail: 'imagen3', code: 'abc3', stock: 10})
-    await pm.addProduct({title: 'titulo4', description: 'descripcion4', price: 150, thumbnail: 'imagen4', code: 'abc4', stock: 15})
-    await pm.addProduct({title: 'titulo5', description: 'descripcion5', price: 300, thumbnail: 'imagen5', code: 'abc5', stock: 12})
-    await pm.addProduct({title: 'titulo6', description: 'descripcion6', price: 280, thumbnail: 'imagen6', code: 'abc6', stock: 35})
-    await pm.addProduct({title: 'titulo7', description: 'descripcion7', price: 220, thumbnail: 'imagen7', code: 'abc7', stock: 18})
-    await pm.addProduct({title: 'titulo8', description: 'descripcion8', price: 120, thumbnail: 'imagen8', code: 'abc8', stock: 11})
-    await pm.addProduct({title: 'titulo9', description: 'descripcion9', price: 100, thumbnail: 'imagen9', code: 'abc9', stock: 36})
-    await pm.addProduct({title: 'titulo10', description: 'descripcion10', price: 170, thumbnail: 'imagen10', code: 'abc10', stock: 5})
-
-
-    await pm.getProducts()
-    
-}
-
-main();
+export default ProductManager;
