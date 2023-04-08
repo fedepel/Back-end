@@ -24,7 +24,8 @@ prodRouter.get('/:id', async (req, res) => {
 });
 
 prodRouter.post('/', async (req, res) => {
-    let newProd = req.body;
+    let { title, description, price, thumbnail, code, stock, category, status } = req.body;
+    let newProd = { title, description, price, thumbnail, code, stock, category, status }
     res.send(await pm.addProduct(newProd))
 });
 

@@ -55,8 +55,7 @@ class ProductManager {
         await this.deleteProductById(id)
         let prodOld = await this.readProducts()
         let prodMod = [{ ...product, id }, ...prodOld]
-        let prodModSorted = prodMod.sort((a, b) => a.id < b.id)
-        await fs.writeFile(this.path, JSON.stringify(prodModSorted))
+        await fs.writeFile(this.path, JSON.stringify(prodMod))
         return 'Product updated.'
     }
 

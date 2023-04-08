@@ -1,0 +1,46 @@
+<header>
+    {{> header}}
+</header>
+<main>
+    <div>
+        <h1>HANDLEBARS</h1>
+        <h2>LIST OF PRODUCTS</h2>
+    </div>
+
+        {{#if allProducts }} 
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Stock</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {{#each allProducts}}
+                        <tr>
+                            <th scope="row">
+                                {{this.id}}
+                            </th>
+                            <td>
+                                {{this.title}}
+                            </td>
+                            <td>
+                                {{this.price}}
+                            </td>
+                            <td>
+                                {{this.stock}}
+                            </td>
+                        </tr>
+                    {{/each }}
+                </tbody>
+            </table>
+        {{else }}
+        {{/if}}
+
+</main>
+<footer>
+    {{> footer}}
+</footer>
