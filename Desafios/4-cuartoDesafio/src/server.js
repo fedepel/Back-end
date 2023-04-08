@@ -74,9 +74,7 @@ socketServer.on('connection', socket => {
                 error: `Error ${err}`
             });
         }
-        let data = {
-            allProducts,
-        };
+        let data = allProducts;
         socket.emit('allProducts', data)
     })();
 })
