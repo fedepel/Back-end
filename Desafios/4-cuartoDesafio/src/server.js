@@ -5,6 +5,7 @@ import cartRouter from "./router/cart.routes.js";
 import { engine } from "express-handlebars";
 import { Server } from 'socket.io';
 import { resolve } from "path";
+import { isObject } from "util";
 
 
 //EXPRESS
@@ -64,8 +65,7 @@ const socketServer = new Server(httpServer)
 socketServer.on('connection', socket => {
     console.log('New client online.');
 
-    let allProducts;
-
+    let allProducts
     (async () => {
         try {
             allProducts = await pm.readProducts();
@@ -77,4 +77,5 @@ socketServer.on('connection', socket => {
         let data = allProducts;
         socket.emit('allProducts', data)
     })();
+    
 })

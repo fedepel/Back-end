@@ -3,8 +3,8 @@ const socket = io();
 const tbodyProducts = document.getElementById(`tbodyProducts`);
 
 socket.on(`allProducts`, data => {
-    console.log(data);
-
+    console.log(data)
+    tbodyProducts.innerHTML = []
     Object.values(data).forEach(product => {
         product = `
             <tr>
